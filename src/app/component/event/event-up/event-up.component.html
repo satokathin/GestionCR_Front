@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Mis-à-jour d'une réunion</h2>
+
+<div class="example-form">
+  <mat-dialog-content [formGroup]="form" class="example">
+    <mat-form-field class="example-full-width">
+        <input type="datetime-local" matInput placeholder="Date et heure de debut" formControlName="begining" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="datetime-local" matInput placeholder="Date et heure de fin" formControlName="ending" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="time" matInput placeholder="Heure de fin" formControlName="endingTime" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Nom du moderateur" formControlName="moderator" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Nom de l'orateur" formControlName="speaker" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Nombre de membres présents" formControlName="nbOfMember" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Nombre d'invités" formControlName="nbOfGuest" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Thème" formControlName="theme" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Résumé" formControlName="summary" required></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Remarques" formControlName="remark" required> </textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onNoClick()">Annuler</button>
+    <button mat-raised-button color="primary" (click)="onUpEventClick()">valider</button>
+  </mat-dialog-actions>
+
+</div>
+
+<!--
+type="datetime"
+type="date"
+
+
+
+-->

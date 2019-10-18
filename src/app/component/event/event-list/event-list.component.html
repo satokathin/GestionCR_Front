@@ -1,0 +1,121 @@
+<h2> Liste des comptes rendus de : {{evenTypeName}}</h2>
+
+<button mat-icon-button aria-hidden="false" matTooltip="Retour" aria-label="back icon" (click)="goBack()">
+    <mat-icon>navigate_before</mat-icon>Retour
+</button>
+
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Rechercher">
+</mat-form-field>
+
+<div *ngIf="showSpinner" class="spin"> <mat-spinner></mat-spinner></div>
+
+<div class="mat-elevation-z9">
+<table mat-table [dataSource]="mesEvents" *ngIf="showAllPage">
+
+    <!--
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>-->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="startingDate">
+        <th mat-header-cell *matHeaderCellDef> Date et heure de debut </th>
+        <td mat-cell *matCellDef="let element"> 
+            {{element.begining | date:'dd-MM-yyyy'}} 
+            {{element.begining | date : 'H:mm'}}
+        </td>
+    </ng-container>
+
+    <!-- App Column -->
+    <ng-container matColumnDef="endingDate">
+        <th mat-header-cell *matHeaderCellDef> Date et heure de fin </th>
+        <td mat-cell *matCellDef="let element"> 
+            {{element.ending | date:'dd-MM-yyyy'}} 
+            {{element.ending | date : 'H:mm'}}
+        </td>
+    </ng-container>
+
+    <!-- App Column -->
+    <ng-container matColumnDef="moderator">
+        <th mat-header-cell *matHeaderCellDef> Nom du moderateur </th>
+        <td mat-cell *matCellDef="let element"> {{element.moderator}} </td>
+    </ng-container>
+
+    <!-- App Column -->
+    <ng-container matColumnDef="orator">
+        <th mat-header-cell *matHeaderCellDef> Nom de l'orateur </th>
+        <td mat-cell *matCellDef="let element"> {{element.speaker}} </td>
+    </ng-container>
+
+    <!-- App Column -->
+    <ng-container matColumnDef="nbOfMember">
+        <th mat-header-cell *matHeaderCellDef> Nombre de membres </th>
+        <td mat-cell *matCellDef="let element"> {{element.nbOfMember}} </td>
+    </ng-container>
+
+    <!-- App Column -->
+    <ng-container matColumnDef="nbOfGuest">
+        <th mat-header-cell *matHeaderCellDef> Nombre d'invité </th>
+        <td mat-cell *matCellDef="let element"> {{element.nbOfGuest}} </td>
+    </ng-container>
+
+    <!-- App Column -->
+    <!--
+    <ng-container matColumnDef="theme">
+        <th mat-header-cell *matHeaderCellDef> Thème </th>
+        <td mat-cell *matCellDef="let element"> {{element.theme}} </td>
+    </ng-container>  -->
+
+    <!-- App Column -->
+    <!--
+    <ng-container matColumnDef="resume">
+        <th mat-header-cell *matHeaderCellDef> Résumé </th>
+        <td mat-cell *matCellDef="let element"> {{element.summary}} </td>
+    </ng-container> -->
+
+    <!-- App Column -->
+    <!--
+    <ng-container matColumnDef="remark">
+        <th mat-header-cell *matHeaderCellDef> Rémarques </th>
+        <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
+    </ng-container> -->
+
+    <!-- App Column -->
+    <!--
+    <ng-container matColumnDef="adress">
+        <th mat-header-cell *matHeaderCellDef> Adresse </th>
+        <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
+    </ng-container>-->
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <a mat-icon-button aria-hidden="false" matTooltip="Editer" aria-label="info icon" (click)="openUpDialog(element)">
+            <mat-icon>edit</mat-icon>
+          </a>
+        </td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+        <a mat-icon-button aria-hidden="false" matTooltip="Supprimer" aria-label="delete icon" (click)="openDelDialog(element)">
+            <mat-icon>delete</mat-icon>
+        </a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons [hidden]="!showAllPage"></mat-paginator>
+
+<button mat-icon-button color="primary" class ="custombuttom" matTooltip="Ajouter" 
+    aria-label="add icon" (click)="openAddDialog()" [hidden]="!showAllPage">
+  <mat-icon>add_circle</mat-icon>Ajouter
+</button><span [hidden]="!showAllPage"><br><br></span>
+</div>

@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Suppression d'une réunion</h2>
+<mat-dialog-content [formGroup]="form">
+    <p>Etes-vous sûr de vouloir supprimer ?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" (click)="onNoClick()" cdkFocusInitial>Annuler</button>
+  <button mat-raised-button color="warn" (click)="onDelEventClick()">Supprimer</button>
+</mat-dialog-actions>

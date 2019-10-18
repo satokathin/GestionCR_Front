@@ -1,0 +1,102 @@
+<!--<div class="container">  
+  <form>  
+      <div class="form-group">  
+          <label for="startingDate">Date et heure de debut:</label>  
+          <input type="datetime" class="form-control" id="startingDate" placeholder="StartingDate">  
+      </div>  
+      <div class="form-group">  
+          <label for="endingDate">Date et heure de fin:</label>  
+          <input type="datetime" class="form-control" id="endingDate" placeholder="EndingDate">  
+      </div>  
+      <div class="form-group">  
+          <label for="Moderaor">Nom du moderateur:</label>  
+          <input type="text" class="form-control" id="moderator" placeholder="Moderator">  
+      </div> 
+      <div class="form-group">  
+          <label for="Oraor">Nom de l'orateur:</label>  
+          <input type="text" class="form-control" id="orator" placeholder="Orator">  
+      </div>  
+      <div class="form-group">  
+          <label for="Members">Nombre de membres présents:</label>  
+          <input type="number" class="form-control" id="nMembers" placeholder="Members">  
+      </div> 
+      <div class="form-group">  
+          <label for="Guests">nombre d'invités:</label>  
+          <input type="number" class="form-control" id="nGuests" placeholder="Guests">  
+      </div> 
+      <div class="form-group">  
+          <label for="Theme">Thème:</label>  
+          <input type="text" class="form-control" id="theme" placeholder="Theme">  
+      </div> 
+      <div class="form-group">  
+          <label for="Resume">Resume:</label>  
+          <input type="text" class="form-control" id="resume" placeholder="Resume">  
+      </div> 
+      <div class="form-group">  
+          <label for="Remark">Remark:</label>  
+          <input type="text" class="form-control" id="remark" placeholder="Remark">  
+      </div>  
+      <div class="text-center">  
+          <button type="submit" class="btn btn-primary">Save</button>  
+          <button type="submit" class="btn btn-secondary">Cancel</button>
+      </div>
+  </form>  (submit)="onAddEvent()" -->
+<h2 mat-dialog-title>Ajout d'un compte-rendu de réunion</h2>
+<form class="example-form" #f="ngForm">
+    <mat-form-field class="example-full-width">
+        <input type="datetime-local" matInput placeholder="Date et heure de debut" name="begining" [(ngModel)]="begining" required>
+        <!--max="{{maxDate | date:'dd-MM-yyyy'}}" min="{{minDate | date:'dd-MM-yyyy'}}-->
+    </mat-form-field>
+    <!--
+    <mat-form-field class="example-full-width">
+      <input type="datetime-local" matInput placeholder="Date et heure de debut test" name="startingDates" [(ngModel)] = "startingDates" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input type="datetime" matInput placeholder="Date et heure de debut test" name="startingDates" [(ngModel)] = "startingDates" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input type="date" matInput placeholder="Date et heure de debut test" name="startingDates" [(ngModel)] = "startingDates" required>
+    </mat-form-field>
+    -->
+
+    <mat-form-field class="example-full-width">
+        <input type="datetime-local" matInput placeholder="Date et heure de fin" name="ending" [(ngModel)]="ending" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input type="time" matInput placeholder="Heure de fin" name="endingTime" [(ngModel)]="endingTime" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Nom du moderateur" name="moderator" [(ngModel)]="moderator" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Nom de l'orateur" name="speaker" [(ngModel)]="speaker" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Nombre de membres présents" name="nbOfMember" [(ngModel)]="nbOfMember" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Nombre d'invités" name="nbOfGuest" [(ngModel)]="nbOfGuest" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Thème" name="theme" [(ngModel)]="theme" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Résumé" name="summary" [(ngModel)]="summary" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Remarques" name="remark" [(ngModel)]="remark" required> </textarea>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-raised-button color="warn" (click)="onNoClick()">Annuler</button>
+        <button mat-raised-button color="primary" (click)="onAddEvenClick()" [disabled]="!f.valid">Ajouter</button>
+    </div>
+</form>
+<!-- </div>-->

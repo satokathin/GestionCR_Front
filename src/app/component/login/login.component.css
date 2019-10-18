@@ -1,0 +1,19 @@
+form{
+    width: 500px;
+    /*margin-left: 38%;*/
+    /*position: absolute;*/
+    /*display: flex;
+    justify-content: center;
+    align-content: center;*/
+    text-align: center;
+    border: 2px solid grey;
+    margin: auto;
+    border-radius: 10px;
+    -moz-box-shadow: 8px 8px 12px #aaa; 
+    -webkit-box-shadow: 8px 8px 12px #aaa; 
+    box-shadow: 2px 2px 8px #555; 
+}
+
+.full-width-input{
+    width: 70%;
+}

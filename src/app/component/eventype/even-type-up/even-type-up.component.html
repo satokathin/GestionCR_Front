@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Mis-à-jour d'un type de réunion</h2>
+
+<!--<form class="example-form" (submit)="onAddEvent()" #f="ngForm"> [disabled]=!formGroup.valid-->
+  
+  <mat-dialog-content [formGroup]="form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Nom du type de reunion" formControlName="name" required>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="onNoClick()">Annuler</button>
+    <button mat-raised-button color="primary" (click)="onUpEvenTypeClick()"> valider</button>
+  </mat-dialog-actions>
+<!--</form>-->
